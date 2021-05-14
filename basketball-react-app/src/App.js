@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import EventsTable from "./components/EventsTable.js";
+import ResultsTable from "./components/ResultsTable.js";
 
 import {
   BrowserRouter as Router,
@@ -17,39 +17,33 @@ import moment from "moment";
 function App() {
   return (
     <Router>
+       <div class="header">
+     
+     <div class="header_inner">
+         <div class="header_logo">PEACH</div>
+         
+         <nav class="nav">
+             <Link to="/" class="nav_link"> ИГРЫ</Link>
+             <Link to="/photo" class="nav_link">ФОТООТЧЕТ</Link>
+             <Link to="/results" class="nav_link">РЕЗУЛЬТАТЫ</Link>
+             <a class="nav_link" href="../basket/moments.html">ЛУЧШИЕ МОМЕНТЫ</a>
+         </nav>
+     </div> 
+  <hr/>
+
+</div>
       <div>
-        <nav>
-          <ul>
-
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-
-            <li>
-              <Link to="/map">Map</Link>
-            </li>
-
-            <li>
-              <Link to="/weather">Weather on weak</Link>
-            </li>
-
-           
-
-          </ul>
-        </nav>
 
         <div className="App">
           <section>
             <Switch>
 
-              <Route path="/map">
+              <Route path="/photo">
                 <Map />
               </Route>
 
-              <Route path="/weather">
-                <h1>Weather</h1>
-                Welcome to the weather list! Click at the button to reload the page!
-                <EventsTable />
+              <Route path="/results">
+                <ResultsTable/>
               </Route>
 
              
