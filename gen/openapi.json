@@ -45,6 +45,43 @@
       },
       "x-swagger-router-controller" : "results-controller"
     },
+    "/photo" : {
+      "get" : {
+        "description" : "Returns list of city events",
+        "operationId" : "photo",
+        "parameters" : [ {
+          "name" : "date",
+          "in" : "query",
+          "description" : "Filtering date",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Success",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/PhotoResponse"
+                }
+              }
+            }
+          },
+          "default" : {
+            "description" : "Error",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "x-swagger-router-controller" : "photo-controller"
+    },
     "/swagger" : {
       "x-swagger-pipe" : "swagger_raw"
     }
@@ -55,6 +92,36 @@
         "type" : "array",
         "items" : {
           "$ref" : "#/components/schemas/Results"
+        }
+      },
+      "PhotoResponse" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/Photo"
+        }
+      },
+      "Photo" : {
+        "required" : [ "img1" ],
+        "type" : "object",
+        "properties" : {
+          "date" : {
+            "type" : "string"
+          },
+          "location" : {
+            "type" : "string"
+          },
+          "name1" : {
+            "type" : "string"
+          },
+          "name2" : {
+            "type" : "string"
+          },
+          "img1" : {
+            "type" : "string"
+          },
+          "img2" : {
+            "type" : "string"
+          }
         }
       },
       "Results" : {
