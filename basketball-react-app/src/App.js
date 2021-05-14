@@ -1,6 +1,8 @@
 import "./App.css";
+import "./Photo.css";
 import React from "react";
 import ResultsTable from "./components/ResultsTable.js";
+import PhotoTable from "./components/PhotoTable.js";
 
 import {
   BrowserRouter as Router,
@@ -39,7 +41,7 @@ function App() {
             <Switch>
 
               <Route path="/photo">
-                <Map />
+                <PhotoTable />
               </Route>
 
               <Route path="/results">

@@ -66,12 +66,7 @@ hr {
   }
 }
 
-/*@font-face {
-  font-family: "Bold";
- /* src: url("assets/fonts/Roboto-Black.ttf") format("truetype");
-  font-style: normal;
-  font-weight: 900;
-}*/
+
 body {
   background: url(./img/Component\ 1.png) center no-repeat;
   -webkit-background-size: cover;
@@ -92,6 +87,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .header_logo {

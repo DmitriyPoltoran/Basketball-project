@@ -1,0 +1,103 @@
+/* body{
+    background:
+    url(./img/photo_background.png) center
+    no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+} */
+
+.header {
+    width: 100%;
+    padding: 20px 0px;
+   
+   
+    mix-blend-mode: normal;
+    
+    left: 0;
+    right: 0;
+    vertical-align:text-top;
+    
+}
+
+.header_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.header_logo {
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+    text-shadow: black;
+    /*font-family: 'Roboto', sans-serif;*/
+    padding-left: 30px;
+}
+
+
+/*NAV*/
+.nav {
+    font-size: 24px;
+    text-transform: uppercase;
+    padding-right: 30px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav_link
+{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 20px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    position: relative;
+    transition: color .5s linear;
+    text-shadow: rgb(216, 116, 59);
+}
+
+.nav_link_a
+{
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 20px;
+    color: rgb(216, 116, 59);
+    text-decoration: none;
+    position: relative;
+    transition: color .5s linear;
+    text-shadow: rgb(216, 116, 59);
+}
+
+.nav_link:hover{
+    color: rgb(216, 116, 59);
+}
+
+.nav_link:hover:after {
+    display: block;
+}
+
+.block_teams{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center
+    
+}
+
+.block_teams_stats{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-top: 40px;
+    align-items: center
+}
+
+.block_teams_stats_img{
+    width: 500px;
+    padding-bottom: 30px;
+}
+
+.block_teams_stats_p{
+    font-size: 30px;
+    /*font-family: 'Roboto', sans-serif;*/
+}

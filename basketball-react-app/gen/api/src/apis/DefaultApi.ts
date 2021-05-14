@@ -18,10 +18,17 @@ import {
     ErrorResponse,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
+    Photo,
+    PhotoFromJSON,
+    PhotoToJSON,
     Results,
     ResultsFromJSON,
     ResultsToJSON,
 } from '../models';
+
+export interface PhotoRequest {
+    date?: string;
+}
 
 export interface ResultsRequest {
     date?: string;
@@ -31,6 +38,36 @@ export interface ResultsRequest {
  * 
  */
 export class DefaultApi extends runtime.BaseAPI {
+
+    /**
+     * Returns list of city events
+     */
+    async photoRaw(requestParameters: PhotoRequest): Promise<runtime.ApiResponse<Array<Photo>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.date !== undefined) {
+            queryParameters['date'] = requestParameters.date;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/photo`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(PhotoFromJSON));
+    }
+
+    /**
+     * Returns list of city events
+     */
+    async photo(requestParameters: PhotoRequest): Promise<Array<Photo>> {
+        const response = await this.photoRaw(requestParameters);
+        return await response.value();
+    }
 
     /**
      * Returns list of city events
