@@ -66,6 +66,31 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
+  
+  /games:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: games-controller
+    get:
+      description: Returns list of city events
+      # used as the method name of the controller
+      operationId: games
+      parameters:
+        - name: date
+          in: query
+          description: Filtering date
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/GamesResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"          
   /swagger:
     x-swagger-pipe: swagger_raw
 # complex objects have schema definitions
@@ -78,6 +103,10 @@ definitions:
     type: array
     items:
       $ref: "#/definitions/Photo"
+  GamesResponse:
+    type: array
+    items:
+      $ref: "#/definitions/Games"    
       
       
   Photo:
@@ -112,7 +141,20 @@ definitions:
       score1:
         type: string
       score2:
-        type: string      
+        type: string
+        
+  Games:
+    required:
+      - date
+    properties:
+      date:
+        type: string
+      location:
+        type: string
+      name1:
+        type: string
+      name2:
+        type: string
 
   ErrorResponse:
     required:
