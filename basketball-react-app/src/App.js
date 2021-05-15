@@ -1,8 +1,17 @@
 import "./App.css";
 import "./Photo.css";
+import "./Moments.css";
 import React from "react";
 import ResultsTable from "./components/ResultsTable.js";
 import PhotoTable from "./components/PhotoTable.js";
+import GamesTable from "./components/GamesTable.js";
+import moments1 from "./img/moment1.jpg";
+import moments2 from "./img/moment2.jpg";
+import moments3 from "./img/moment3.jpg";
+import moments4 from "./img/moment4.jpg";
+import moments5 from "./img/moment5.jpg";
+import moments6 from "./img/moment6.jpg";
+
 
 import {
   BrowserRouter as Router,
@@ -28,7 +37,7 @@ function App() {
              <Link to="/" class="nav_link"> ИГРЫ</Link>
              <Link to="/photo" class="nav_link">ФОТООТЧЕТ</Link>
              <Link to="/results" class="nav_link">РЕЗУЛЬТАТЫ</Link>
-             <a class="nav_link" href="../basket/moments.html">ЛУЧШИЕ МОМЕНТЫ</a>
+             <Link to="/moments" class="nav_link">ЛУЧШИЕ МОМЕНТЫ</Link>
          </nav>
      </div> 
   <hr/>
@@ -48,11 +57,26 @@ function App() {
                 <ResultsTable/>
               </Route>
 
+              <Route path="/moments">
+              <div class="block_teams">
+        <div class="block_teams_stats">
+            <img class="block_teams_stats_img" src={moments1}></img>
+            <img class="block_teams_stats_img" src={moments2}></img>
+        </div>
+        <div class="block_teams_stats">
+            <img class="block_teams_stats_img" src={moments3}></img>
+            <img class="block_teams_stats_img" src={moments4}></img>
+        </div>
+        <div class="block_teams_stats">
+            <img class="block_teams_stats_img" src={moments5}></img>
+            <img class="block_teams_stats_img" src={moments6}></img>
+        </div>
+    </div>
+              </Route>
              
 
               <Route path="/">
-                <h1>Home</h1>
-                Welcome to our service. Please explore
+              <GamesTable/>
               </Route>
 
               <Route path="*">

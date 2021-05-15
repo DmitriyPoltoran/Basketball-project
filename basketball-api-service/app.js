@@ -32,4 +32,7 @@ SwaggerExpress.create(config, function (err, swaggerExpress) {
   if (swaggerExpress.runner.swagger.paths["/photo"]) {
     console.log("try this:\ncurl http://127.0.0.1:" + port + `/api/v1/photo?date=${fullDateText}`);
   }
+  if (swaggerExpress.runner.swagger.paths["/games"]) {
+    console.log("try this:\ncurl http://127.0.0.1:" + port + `/api/v1/games?date=${fullDateText}`);
+  }
 });

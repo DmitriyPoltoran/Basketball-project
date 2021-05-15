@@ -18,6 +18,9 @@ import {
     ErrorResponse,
     ErrorResponseFromJSON,
     ErrorResponseToJSON,
+    Games,
+    GamesFromJSON,
+    GamesToJSON,
     Photo,
     PhotoFromJSON,
     PhotoToJSON,
@@ -25,6 +28,10 @@ import {
     ResultsFromJSON,
     ResultsToJSON,
 } from '../models';
+
+export interface GamesRequest {
+    date?: string;
+}
 
 export interface PhotoRequest {
     date?: string;
@@ -38,6 +45,36 @@ export interface ResultsRequest {
  * 
  */
 export class DefaultApi extends runtime.BaseAPI {
+
+    /**
+     * Returns list of city events
+     */
+    async gamesRaw(requestParameters: GamesRequest): Promise<runtime.ApiResponse<Array<Games>>> {
+        const queryParameters: any = {};
+
+        if (requestParameters.date !== undefined) {
+            queryParameters['date'] = requestParameters.date;
+        }
+
+        const headerParameters: runtime.HTTPHeaders = {};
+
+        const response = await this.request({
+            path: `/games`,
+            method: 'GET',
+            headers: headerParameters,
+            query: queryParameters,
+        });
+
+        return new runtime.JSONApiResponse(response, (jsonValue) => jsonValue.map(GamesFromJSON));
+    }
+
+    /**
+     * Returns list of city events
+     */
+    async games(requestParameters: GamesRequest): Promise<Array<Games>> {
+        const response = await this.gamesRaw(requestParameters);
+        return await response.value();
+    }
 
     /**
      * Returns list of city events
