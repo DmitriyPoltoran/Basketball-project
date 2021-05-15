@@ -3,6 +3,8 @@ import "./Photo.css";
 import React from "react";
 import ResultsTable from "./components/ResultsTable.js";
 import PhotoTable from "./components/PhotoTable.js";
+import GamesTable from "./components/GamesTable.js";
+
 
 import {
   BrowserRouter as Router,
@@ -28,7 +30,7 @@ function App() {
              <Link to="/" class="nav_link"> ИГРЫ</Link>
              <Link to="/photo" class="nav_link">ФОТООТЧЕТ</Link>
              <Link to="/results" class="nav_link">РЕЗУЛЬТАТЫ</Link>
-             <a class="nav_link" href="../basket/moments.html">ЛУЧШИЕ МОМЕНТЫ</a>
+             <Link to="/moments" class="nav_link">ЛУЧШИЕ МОМЕНТЫ</Link>
          </nav>
      </div> 
   <hr/>
@@ -48,11 +50,13 @@ function App() {
                 <ResultsTable/>
               </Route>
 
+              <Route path="/moments">
+                <ResultsTable/>
+              </Route>
              
 
               <Route path="/">
-                <h1>Home</h1>
-                Welcome to our service. Please explore
+              <GamesTable/>
               </Route>
 
               <Route path="*">
