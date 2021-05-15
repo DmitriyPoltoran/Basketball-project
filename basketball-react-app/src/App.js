@@ -1,9 +1,16 @@
 import "./App.css";
 import "./Photo.css";
+import "./Moments.css";
 import React from "react";
 import ResultsTable from "./components/ResultsTable.js";
 import PhotoTable from "./components/PhotoTable.js";
 import GamesTable from "./components/GamesTable.js";
+import moments1 from "./img/moment1.jpg";
+import moments2 from "./img/moment2.jpg";
+import moments3 from "./img/moment3.jpg";
+import moments4 from "./img/moment4.jpg";
+import moments5 from "./img/moment5.jpg";
+import moments6 from "./img/moment6.jpg";
 
 
 import {
@@ -51,7 +58,20 @@ function App() {
               </Route>
 
               <Route path="/moments">
-                <ResultsTable/>
+              <div class="block_teams">
+        <div class="block_teams_stats">
+            <img class="block_teams_stats_img" src={moments1}></img>
+            <img class="block_teams_stats_img" src={moments2}></img>
+        </div>
+        <div class="block_teams_stats">
+            <img class="block_teams_stats_img" src={moments3}></img>
+            <img class="block_teams_stats_img" src={moments4}></img>
+        </div>
+        <div class="block_teams_stats">
+            <img class="block_teams_stats_img" src={moments5}></img>
+            <img class="block_teams_stats_img" src={moments6}></img>
+        </div>
+    </div>
               </Route>
              
 
